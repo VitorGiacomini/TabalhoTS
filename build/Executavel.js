@@ -106,19 +106,19 @@ class Menu {
             console.log('3 - Transferir');
             console.log('4 - Gerar relatório');
             console.log('5 - Retornar ao menu anterior');
-            const opcao = parseInt(prompt('Informe a opção desejada: '));
+            const opcao = parseInt(prompt('\nInforme a opção desejada: '));
             switch (opcao) {
                 case 1:
-                    const valorDeposito = parseFloat(prompt('Informe o valor do depósito: '));
+                    const valorDeposito = parseFloat(prompt('\nInforme o valor do depósito: '));
                     conta.depositar(valorDeposito);
                     break;
                 case 2:
-                    const valorSaque = parseFloat(prompt('Informe o valor do saque: '));
+                    const valorSaque = parseFloat(prompt('\nInforme o valor do saque: '));
                     conta.sacar(valorSaque);
                     break;
                 case 3:
-                    const transferencia = parseFloat(prompt('Informe o valor para transferir: '));
-                    const numContaDestino = prompt('Informe a conta de destino: ');
+                    const transferencia = parseFloat(prompt('\nInforme o valor para transferir: '));
+                    const numContaDestino = prompt('\nInforme a conta de destino: ');
                     const contaDestino = this.banco.procurarConta(numContaDestino);
                     if (contaDestino) {
                         conta.transferir(transferencia, contaDestino);
@@ -138,7 +138,7 @@ class Menu {
         }
     }
     removerConta() {
-        const numeroConta = prompt('Informe o número da conta: ');
+        const numeroConta = prompt('\nInforme o número da conta: ');
         const conta = this.banco.procurarConta(numeroConta);
         if (conta) {
             this.banco.remover(conta);

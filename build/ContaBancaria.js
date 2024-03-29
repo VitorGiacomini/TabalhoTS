@@ -7,14 +7,18 @@ class ContaBancaria {
         this.numeroConta = numeroConta;
         this.saldo = saldoInicial;
     }
-    transferir(valor, contaTransferencia) {
+    transferir(valor, contaTransferencia, mostrarMensagens = true) {
         if (this.saldo >= valor) {
-            this.sacar(valor);
-            contaTransferencia.depositar(valor);
-            console.log(`Transferência de R$${valor} realizada da conta \n ${this.numeroConta} para a conta ${contaTransferencia.getNumeroConta()}`);
+            this.saldo -= valor;
+            contaTransferencia.saldo += valor;
+            if (mostrarMensagens) {
+                console.log(`\nTransferência de R$${valor} realizada da conta ${this.numeroConta} para a conta ${contaTransferencia.numeroConta}`);
+            }
         }
         else {
-            console.log(`Saldo de transferêmcia é insuficiente na conta ${this.numeroConta}`);
+            if (mostrarMensagens) {
+                console.log(`\nSaldo insuficiente na conta ${this.numeroConta} para realizar a transferência de R$${valor}`);
+            }
         }
     }
     getSaldo() {
