@@ -26,7 +26,7 @@ class Menu {
 			console.log('|5 - Sair             |');
 			console.log('|_____________________|');
 
-			const opcao = parseInt(prompt('\nEscolha uma opção: '));
+			const opcao = parseInt(prompt('Escolha uma opção: '));
 
 			switch (opcao) {
 				case 1:
